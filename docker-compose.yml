@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  run:
+    image: solanalabs/solana:stable
+    entrypoint: /usr/bin/solana-test-validator
+    command: --quiet
+    ports:
+      - "1024:1024"
+      - "1027:1027"
+      - "8899:8899"
+    volumes:
+      - ./test-ledger:/test-ledger
+    restart: always
